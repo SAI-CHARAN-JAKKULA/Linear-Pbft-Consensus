@@ -411,7 +411,7 @@ func (s *Server) HandleViewChange(args *struct {
 				count++
 			}
 		}
-		if count == len(args.ViewChangeMessage.ActiveServerList)-len(args.ViewChangeMessage.ByzantineServerList)-1 {
+		if count == len(args.ViewChangeMessage.ActiveServerList)-len(args.ViewChangeMessage.ByzantineServerList)-1 && len(args.ViewChangeMessage.ActiveServerList)-len(args.ViewChangeMessage.ByzantineServerList)-1 >= 4 {
 			// fmt.Printf("received %d view change messages at %s\n", count, s.Name)
 			if s.Name == shared.GetServerNameWithViewNumber(s.ViewNumber) {
 				s.sendNewView(args.ViewChangeMessage.Signature, args.ViewChangeMessage.ActiveServerList, args.ViewChangeMessage.ByzantineServerList, "new-view")

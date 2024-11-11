@@ -117,7 +117,7 @@ func main() {
 						}
 					}
 				}
-				if successCount < 3 && len(set.ActiveServerList)-len(set.ByzantineServerList) >= 5 {
+				if successCount < 3 {
 					// Retry sending to all active servers except S1
 					fmt.Printf("At client tx %s->%s:%d received %d responses, with status executed\n", tx.Source, tx.Destination, tx.Amount, successCount)
 					tx.Status = "resent-client-request"
